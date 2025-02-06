@@ -1,0 +1,125 @@
+/* Set max-width for the page */
+#content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Center text elements within their parent */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #333;
+}
+
+nav a:hover {
+    background-color: black;
+    color: #d9c2a3;
+}
+
+#hero-msg h1, #hero-msg h4 {
+    text-align: center;
+    color: #000000;
+}
+
+.button-box, main section {
+    text-align: center;
+}
+
+#background {
+    height: 725px;
+    background-color: #f0f0f0;
+}
+
+/* Set the background color for the body */
+body {
+    background-color: #fcfbfb;
+    color: #000000;
+    margin: 0;
+}
+
+/* Set the background color for the header */
+header {
+    background-color: rgba(20, 30, 13, 0.7);
+}
+
+/* Set background color for book and join buttons */
+.book, .join {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    transition: background-color 0.3s ease;
+}
+
+/* Set background color for buttons when hovered */
+.book:hover, .join:hover {
+    background-color: #c3ddfa;
+    color: #000000;
+}
+
+/* Set background color for the #background container */
+#background {
+    height: 725px;
+    background-color: #423434;
+}
+
+/* Set background color for the message section */
+.msg {
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.msg h2 {
+    color: #333;
+}
+
+.msg p {
+    color: #666;
+}
+
+/* Set background color for the footer */
+footer {
+    background-color: #333;
+    color: white;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #d9c2a3;
+}
+
+/* Width adjustments */
+.logo {
+    width: 80px; /* Set the width for the logo */
+}
+
+.icon {
+    width: 80px; /* Set the width for all card icons */
+}
+
+#hero-img {
+    width: 100%; /* Make the hero image responsive with full width */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    #content {
+        padding: 0 10px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .book, .join {
+        width: 100%;
+    }
+}
