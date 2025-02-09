@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+
+
+
 /* Set max-width for the page */
 #content {
     max-width: 1600px;
@@ -37,6 +41,10 @@ nav a:hover {
 }
 
 /* Set the background color for the body */
+.home-title {
+    font-size: 2em;
+}
+
 body {
     background-color: #fcfbfb;
     color: #000000;
@@ -50,11 +58,22 @@ header {
 
 /* Set background color for book and join buttons */
 .book, .join {
-    background-color: #ffffff;
+    background-color: #d9c2a3;
     color: rgb(0, 0, 0);
+    text-decoration: none;
     transition: background-color 0.3s ease;
+    font-size: 18px;
+    padding: 15px 30px;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+.card-img {
+    border: 10px solid #d9c2a3;
 }
 
+main section img {
+    box-sizing: border-box;
+}
 /* Set background color for buttons when hovered */
 .book:hover, .join:hover {
     background-color: #c3ddfa;
@@ -71,6 +90,7 @@ header {
 .msg {
     background-color: #ffffff;
     padding: 20px;
+    line-height: 1.5em;
 }
 
 .msg h2 {
@@ -78,6 +98,7 @@ header {
 }
 
 .msg p {
+    font-size: 0.8em;
     color: #666;
 }
 

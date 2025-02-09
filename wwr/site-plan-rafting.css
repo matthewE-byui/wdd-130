@@ -33,9 +33,11 @@ Fonts are separated by a & */
 body {
   max-width: 960px;
   margin: 0 auto;
-  padding: 4em;
+  padding: 0;
   font-size: 18px;
   text-align: center;
+  font-size: 22px;
+  font-family: 'Lato', 'Arial', sans-serif;
 }
 img {
   display: block;
@@ -45,9 +47,12 @@ img {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font);
   color: var(--headline-color-on-white);
+  font-family: 'Kumar One', 'Georgia', serif;
+
 }
 h2 {
   text-align: center;
+  margin: 0;
 }
 hr {
   height: 3px;
@@ -108,10 +113,12 @@ nav  {
   display: flex;
 }
 nav a {
-  padding:1em;
+  padding:35px;
   min-width: 120px;
   text-decoration: none;
   padding: 10px;
+  color: #fcfbfb;
+  text-align: center;
 }
 nav a:link, nav a:visited {
   color: var(--nav-link-color);
