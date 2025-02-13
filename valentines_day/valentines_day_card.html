@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Card</title>
+    <link rel="stylesheet" href="valentiines.css">
+    <style>
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Happy Valentine's Day!</h2>
+            <button class="heart-button" onclick="sendMessage(); createHearts()">❤️</button>
+        </div>
+        <div class="note" id="note">Happy Valentines Day, Amia! I cant wait to be with you forever! Every day I wake up I cant belive Im yours! ❤️
+        </div>
+    </div>
+    <script>
+        function sendMessage() {
+            const note = document.getElementById("note");
+            note.style.display = "block";
+            note.innerHTML = "Happy Valentines Day, Amia!\nI cant wait to be with you forever!\nEvery day I wake up I cant belive Im yours!\n I Love You ❤️";
+        }
+
+        function createHearts() {
+            const emojis = ["❤️", "💖", "💘", "💕", "💗", "💓", "🥰"];
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                heart.classList.add("heart");
+                heart.style.color = "red";
+                document.body.appendChild(heart);
+                
+                let x = Math.random() * window.innerWidth;
+                let y = Math.random() * window.innerHeight;
+                heart.style.left = `${x}px`;
+                heart.style.top = `${y}px`;
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>
