@@ -1,0 +1,276 @@
+/* CSS - Name: "positionstyles.css" */
+/* Activity 1 styles */
+.content1, .content2, .content3, .content4, .content5, .content6 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-rows: auto auto auto auto auto; /* 5 rows */
+    gap: 10px; /* Space between boxes */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.red1 {
+grid-column: 1 / 4; /* Red spans across all 3 columns */ 
+margin-top: 10px;
+columns: center;
+width: 500px; 
+height: 100px; 
+background-color: red; 
+} 
+.green1 {
+columns: center;
+grid-row: 2;
+width: 100px; 
+height: 100px; 
+background-color: green; 
+} 
+.yellow1 {
+columns: center;
+grid-row: 3;
+width: 100px; 
+height: 100px; 
+background-color: gold; 
+} 
+.blue1 {
+columns: center;
+grid-row: 4;
+width: 500px; 
+height: 100px; 
+background-color: blue; 
+} 
+ /* Activity 2 styles */ 
+ .content2 {
+    position: relative;
+    width: 120px; /* Adjusted to fit one box width */
+    height: 500px; /* Adjust height for stacking */
+}
+
+.red2 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: absolute;
+    top: 10px; /* Slight margin from the top */
+    left: 10px;
+}
+
+.green2 {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    position: absolute;
+    top: 60px; /* Overlapping 25% of red */
+    left: 60px; /* Shift right */
+}
+
+.yellow2 {
+    width: 100px;
+    height: 100px;
+    background-color: gold;
+    position: absolute;
+    top: 110px; /* Overlapping 25% of green */
+    left: 110px; /* Shift right */
+}
+
+.blue2 {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    position: absolute;
+    top: 160px; /* Overlapping 25% of yellow */
+    left: 165px; /* Shift right */
+}
+
+ /* Activity 3 styles */ 
+ .content3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything horizontally */
+    gap: 10px; /* Space between elements */
+    width: 300px; /* Adjust based on your needs */
+}
+
+.red3, .blue3 {
+    width: 100%; /* Full width bars */
+    height: 50px; /* Adjust height as needed */
+}
+
+.red3 {
+    background-color: red;
+    margin-top: 10px; /* Space from top */
+}
+
+.middle-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between green and yellow */
+}
+
+.green3, .yellow3 {
+    width: 140px;
+    height: 140px;
+}
+
+.green3 {
+    background-color: green;
+}
+
+.yellow3 {
+    background-color: gold;
+}
+
+.blue3 {
+    background-color: blue;
+    margin-bottom: 10px; /* Space from bottom */
+}
+
+ /* Activity 4 styles */ 
+.content4 {
+    /* This is the parent of the activity 4 boxes. */
+    height: 400px;
+}
+.red4 {
+width: 100px; 
+height: 100px; 
+background-color: red; 
+ } 
+.green4 {
+width: 100px; 
+height: 100px; 
+background-color: green; 
+} 
+.yellow4 {
+width: 100px; 
+height: 100px; 
+background-color: gold; 
+ } 
+.blue4 {
+width: 100px; 
+height: 100px; 
+background-color: blue; 
+ } 
+ /* Activity 5 styles */ 
+.content5 {
+    /* This is the parent of the activity 5 boxes. */
+     height: 400px;
+}
+.red5 { 
+width: 100px; 
+height: 100px; 
+background-color: red; 
+ } 
+.green5 { 
+width: 100px; 
+height: 100px; 
+background-color: green; 
+
+ } 
+.yellow5 {
+width: 100px; 
+height: 100px; 
+background-color: gold; 
+
+} 
+.blue5 {
+width: 100px; 
+height: 100px; 
+background-color: blue; 
+ } 
+ /* Activity 6 styles */ 
+.content6 {
+    /* This is the parent of the activity 6 boxes. */
+}
+.red6 {
+width: 100px; 
+height: 100px; 
+background-color: red; 
+} 
+.green6 {
+width: 100px; 
+height: 100px; 
+background-color: green; 
+ } 
+.yellow6 {
+width: 100px; 
+height: 100px; 
+background-color: gold; 
+} 
+.blue6 {
+width: 100px; 
+height: 100px; 
+background-color: blue; 
+} 
+
+
+/* Do not make any changes below here */
+ .activity {
+width: 70%; 
+margin: 20px auto; 
+font-family: Arial, sans-serif; 
+border: 1px solid black; 
+padding: 10px; 
+clear:both; 
+overflow: auto;
+} 
+
+.hint {
+border: 1px solid grey;
+background: #e0e0e0;
+padding: .5em;
+position: relative;
+margin: 1em 0;
+}
+.hint h3 {
+margin: 0;
+}
+.hint:hover {
+background: #d0d0d0;
+}
+.hint > div {
+display: none;
+}
+
+.hint input[type=checkbox] {
+position: absolute;
+width: 100%;
+height: 100%;
+opacity: 0;
+z-index: 1;
+cursor: pointer;
+}
+
+.hint input[type=checkbox]:checked ~ div {
+display: block;
+}
+
+.hint i {
+position: absolute;
+transform: translate(-6px, 0);
+margin-top: 16px;
+right: 10px;
+top: -3px;
+}
+.hint i:before, .hint i:after {
+content: "";
+position: absolute;
+background-color: black;
+width: 3px;
+height: 9px;
+}
+.hint i:before {
+transform: translate(2px, 0) rotate(45deg);
+}
+.hint i:after {
+transform: translate(-2px, 0) rotate(-45deg);
+}
+
+.hint input[type=checkbox]:checked ~ i:before {
+transform: translate(-2px, 0) rotate(45deg);
+}
+.hint input[type=checkbox]:checked ~ i:after {
+transform: translate(2px, 0) rotate(-45deg);
+}
+.hint a {
+position: relative;
+z-index: 1;
+}
