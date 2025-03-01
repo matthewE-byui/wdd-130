@@ -1,6 +1,6 @@
 body {
-    background-color: #0a0f1a;
-    color: #00eaff;
+    background-color: hsl(0, 3%, 11%);
+    color: #ffffff;
     font-family: Arial, sans-serif;
     text-align: center;
 }
@@ -11,19 +11,9 @@ body {
     padding: 20px;
 }
 
-.ai-face {
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, #00eaff, #003344);
-    border-radius: 50%;
-    margin: 20px auto;
-    box-shadow: 0 0 20px #205e64;
-    animation: pulse 1s infinite alternate ease-in-out;
-}
-
 @keyframes pulse {
-    0% { box-shadow: 0 0 15px #00eaff; }
-    100% { box-shadow: 0 0 25px #00eaff; }
+    0% { box-shadow: 0 0 15px #ffffff; }
+    100% { box-shadow: 0 0 25px #ffffff; }
 }
 
 .chat-box {
@@ -41,7 +31,7 @@ input[type="text"] {
     border: none;
     border-radius: 5px;
     background-color: #001a2b;
-    color: #00eaff;
+    color: #ffffff;
     text-align: center;
     outline: none;
 }
@@ -67,4 +57,80 @@ button:hover {
     margin: 20px auto; 
     width: 150px; 
     height: auto; 
+}
+
+.ai-face {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at center, #00eaff 20%, #003344 80%);
+    border-radius: 50%;
+    margin: 20px auto;
+    position: relative;
+    box-shadow: 0 0 20px #003cff, 0 0 40px #004cff inset;
+    animation: pulse 1s infinite alternate ease-in-out;
+}
+
+/* Spinning rings */
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* First Spinning Ring */
+.ring1 {
+    width: 180%;
+    height: 180%;
+    border: 30px dashed rgba(0, 234, 255, 0.6);
+    animation: spin 10s infinite linear;
+}
+
+/* Second Spinning Ring */
+.ring2 {
+    width: 150%;
+    height: 150%;
+    border: 15px dashed rgba(0, 234, 255, 0.4);
+    animation: spin-reverse 15s infinite linear;
+}
+
+/* Third Spinning Ring */
+.ring3 {
+    width: 120%;
+    height: 120%;
+    border: 10px dashed rgba(0, 234, 255, 0.3);
+    animation: spin 20s infinite linear;
+}
+
+/* Clockwise Rotation */
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Counterclockwise Rotation */
+@keyframes spin-reverse {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+/* Inner glowing effect - centered */
+.ai-face::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(69, 129, 149, 0.437) 30%, transparent 80%);
+    transform: translate(-50%, -50%);
+    filter: blur(50px);
+}
+
+/* AI pulsing glow effect */
+@keyframes pulse {
+    0% { box-shadow: 0 0 15px #00eaff, 0 0 30px #00eaff inset; }
+    100% { box-shadow: 0 0 100px #043135, 0 0 50px #00eaff inset; }
 }

@@ -1,0 +1,325 @@
+body {
+    background-color: hsl(0, 3%, 11%);
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}
+
+/* App container - Holds sidebar & chat */
+.app-container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar (Left) */
+.sidebar {
+    width: 260px;
+    background-color: #1a1a2e;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.sidebar h2 {
+    color: #00eaff;
+    text-align: center;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    background-color: #252542;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: #00eaff;
+    color: black;
+}
+/* new side bar 2/25/2025*/
+.sidebar-conversations {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    max-height: 200px; /* Prevents too many chats from expanding the sidebar */
+    overflow-y: auto; /* Scrollable if too many */
+}
+
+.sidebar-conversations li {
+    padding: 8px;
+    background: #252542;
+    color: white;
+    border-radius: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.sidebar-conversations li:hover {
+    background: #00eaff;
+    color: black;
+}
+/*------------------------------*/
+
+
+/* Chat Section (Center) */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 100px;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+/* Chat Header */
+.chat-header h1 {
+    margin-left: -100px; /* Pushes it closer to the sidebar */
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.229);
+}
+
+/* Chat History */
+.chat-history {
+    flex-grow: 1;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Chat Box */
+.chat-box {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    gap: 10px;
+}
+
+
+.chat-history {
+    margin-bottom: 300px;
+}
+
+.chat-box {
+    margin-top: 40px;
+}
+
+
+/* Chat Icon with spinning rings */
+.chat-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle at center, #00eaff 20%, #003344 80%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00eaff;
+}
+
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ring1 {
+    width: 30px;
+    height: 30px;
+    border: 2px dashed rgba(0, 234, 255, 0.6);
+    animation: spin 10s infinite linear;
+}
+
+.ring2 {
+    width: 38px;
+    height: 38px;
+    border: 2px dashed rgba(0, 234, 255, 0.4);
+    animation: spin-reverse 15s infinite linear;
+}
+
+.ring3 {
+    width: 45px;
+    height: 45px;
+    border: 4px dashed rgba(0, 234, 255, 0.3);
+    animation: spin 20s infinite linear;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+/* spinning rings send animation */
+.send-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    transition: transform 0.1s ease-in-out;
+}
+
+.send-button:active {
+    transform: scale(0.9); /* Shrinks when clicked */
+}
+
+/* Extra effect: glow pulse */
+.send-button.clicked {
+    animation: pulseEffect 0.3s ease-in-out;
+}
+
+@keyframes pulseEffect {
+    0% { transform: scale(0.9); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Chat Input */
+.chat-box textarea {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #00eaff;
+    border-radius: 5px;
+    background-color: #001a2b;
+    color: #ffffff;
+    text-align: left;
+    resize: none;
+    height: 40px;
+    overflow-y: auto;
+}
+
+.chat-box button {
+    background-color: #00eaff;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.chat-box button:hover {
+    background-color: #0088aa;
+}
+
+
+/*settings input */
+
+.settings-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #1a1a2e;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.settings-container h1 {
+    color: #00eaff;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    background-color: #001a2b;
+    color: white;
+    border: 1px solid #00eaff;
+    border-radius: 5px;
+}
+.back-link {
+    display: block;
+    margin-top: 15px;
+    color: #00eaff;
+    text-decoration: none;
+}
+/*format user and AI messages*/
+.chat-history {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 70vh; /* Ensures chat scrolls when full */
+}
+
+/* User Messages (Align Right) */
+.user-message {
+    align-self: flex-end;
+    background-color: #0088aa;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 60%;
+    text-align: left;
+}
+
+/* AI Messages (Align Left) */
+.ai-message {
+    align-self: flex-start;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 60%;
+    text-align: left;
+}
+
+/* Ensure chat input is positioned well */
+.chat-input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    width: 100%;
+    gap: 10px;
+}
+
+/* User Input Field */
+#user-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: #001a2b;
+    color: white;
+    border-radius: 5px;
+    resize: none;
+    height: 40px;
+    overflow-y: auto;
+}

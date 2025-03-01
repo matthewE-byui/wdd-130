@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="utf-8">
+    <title>Jarvis AI Interface</title>
+    <link rel="stylesheet" href="jarvis.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2></h2>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="startNewChat(); showChat();">New Chat</a></li>
+                    
+                    <li>
+                        <a href="#" onclick="showChatHistory()">Past Conversations</a>
+                        <ul id="past-conversations" class="sidebar-conversations"></ul>
+                    </li>
+                    <li><a href="#" onclick="showSettings()">Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Chat Section -->
+        <main class="chat-container">
+            <header class="chat-header" style="position: absolute; top: 0; left: 1; width: 100%;">
+    <h1 id="page-title" class="sidebar-title">Jarvis 0.1</h1>
+</header>
+            <!-- Chat View -->
+    <div id="chat-view">
+                
+        <div id="chat-history" class="chat-history" style="background: none; border: none;">
+            <p class="ai-message">Hello! I'm Jarvis. How can I assist you today?</p>
+        </div>
+        <div class="chat-box">
+            <textarea id="user-input" placeholder="Ask Jarvis..."></textarea>
+            <div class="chat-icon send-button" onclick="sendMessage()">
+                <div class="ring ring1"></div>
+                <div class="ring ring2"></div>
+                <div class="ring ring3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings View  -->
+    <div id="settings-view" style="display: none;">
+        <h2>Settings</h2>
+
+        <label for="theme">Theme:</label>
+        <select id="theme">
+            <option value="dark">Dark Mode</option>
+            <option value="light">Light Mode</option>
+        </select>
+
+        <label for="text-size">Text Size:</label>
+        <select id="text-size">
+            <option value="small">Small</option>
+            <option value="medium" selected>Medium</option>
+            <option value="large">Large</option>
+        </select>
+
+        <label for="response-speed">AI Response Speed:</label>
+        <select id="response-speed">
+            <option value="normal" selected>Normal</option>
+            <option value="fast">Fast</option>
+            <option value="slow">Slow</option>
+        </select>
+
+        <button id="reset-chat" onclick="resetChatHistory()" 
+            style="background-color: rgb(126, 19, 19); color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px; transition: transform 0.1s ease-in-out;" 
+            onmousedown="this.style.transform='scale(0.9)'" 
+            onmouseup="this.style.transform='scale(1)'">
+            Reset Chat History
+        </button>           
+    </div>
+                <!-- Past Conversations View (Initially Hidden) -->
+    <div id="chat-history-view" style="display: none;">
+        <h2>Past Conversations</h2>
+        <ul id="past-conversations"></ul>
+    </div>
+</main>
+
+
+
+
+
+
+
+
+
+    <!-- JavaScript to Switch Views -->
+    <script>
+
+function showSettings() {
+    document.getElementById("chat-view").style.display = "none";
+    document.getElementById("chat-history-view").style.display = "none"; 
+    document.getElementById("settings-view").style.display = "block";
+    document.getElementById("page-title").textContent = "Settings";
+}
+
+function showChat() {
+    document.getElementById("chat-view").style.display = "block";
+    document.getElementById("chat-history-view").style.display = "none"; 
+    document.getElementById("settings-view").style.display = "none";
+    document.getElementById("page-title").textContent = "Jarvis 0.1";
+}
+
+function showChatHistory() {
+    document.getElementById("chat-view").style.display = "none";
+    document.getElementById("settings-view").style.display = "none";
+    document.getElementById("chat-history-view").style.display = "block";
+    document.getElementById("page-title").textContent = "Past Conversations";
+
+    let conversations = JSON.parse(localStorage.getItem("conversations")) || [];
+    let pastConversations = document.getElementById("past-conversations");
+    pastConversations.innerHTML = ""; // Clear previous list
+
+    conversations.forEach((conv, index) => {
+        let listItem = document.createElement("li");
+        listItem.textContent = `Conversation ${index + 1}`;
+        listItem.onclick = () => displayFullConversation(conv.messages);
+        pastConversations.appendChild(listItem);
+    });
+}
+
+// ✅ Keep only this `resetChatHistory()` function
+function resetChatHistory() {
+    let chatHistory = document.getElementById("chat-history");
+    let userMessages = chatHistory.querySelectorAll(".user-message"); 
+    userMessages.forEach(message => message.remove()); 
+}
+
+// ✅ Keep only this `sendMessage()` function
+function sendMessage() {
+    let inputField = document.getElementById("user-input");
+    let input = inputField.value.trim();
+    if (input !== "") {
+        let chatHistory = document.getElementById("chat-history");
+
+        // User message
+        let userMessage = document.createElement("div");
+        userMessage.classList.add("user-message");
+        userMessage.textContent = input;
+        chatHistory.appendChild(userMessage);
+
+        inputField.value = "";
+        inputField.style.height = "auto";
+
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+
+        // Simulate AI response
+        setTimeout(() => {
+            let aiMessage = document.createElement("div");
+            aiMessage.classList.add("ai-message");
+            aiMessage.textContent = "Let me process that...";
+            chatHistory.appendChild(aiMessage);
+
+            // Save full conversation to localStorage
+            saveConversation(input, "Let me process that...");
+
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }, 1000);
+    }
+}
+
+// ✅ Keep only this version of `saveConversation()`
+function saveConversation(userMessage, aiMessage) {
+    let conversations = JSON.parse(localStorage.getItem("conversations")) || [];
+    
+    // Check if there's an active conversation, else start a new one
+    if (conversations.length === 0 || conversations[conversations.length - 1].finished) {
+        conversations.push({ messages: [], finished: false });
+    }
+    
+    // Add messages to the active conversation
+    conversations[conversations.length - 1].messages.push({ user: userMessage, ai: aiMessage });
+
+    localStorage.setItem("conversations", JSON.stringify(conversations));
+}
+
+
+// ✅ Keep only this `loadPastConversations()`
+function loadPastConversations() {
+    let conversations = JSON.parse(localStorage.getItem("conversations")) || [];
+    let pastConversations = document.getElementById("past-conversations");
+    pastConversations.innerHTML = ""; // Clear previous list
+
+    conversations.forEach((conv, index) => {
+        let listItem = document.createElement("li");
+        let summary = conv.messages.length > 0 ? conv.messages[0].user : "Empty Conversation";
+        listItem.textContent = `Chat ${index + 1}: ${summary}`;
+        listItem.onclick = () => displayFullConversation(conv.messages);
+        pastConversations.appendChild(listItem);
+    });
+}
+
+// ✅ Display full past conversation
+function displayFullConversation(messages) {
+    let chatHistory = document.getElementById("chat-history");
+    chatHistory.innerHTML = ""; // Clear chat window
+
+    messages.forEach(msg => {
+        let userMessage = document.createElement("div");
+        userMessage.classList.add("user-message");
+        userMessage.textContent = msg.user;
+        chatHistory.appendChild(userMessage);
+
+        let aiMessage = document.createElement("div");
+        aiMessage.classList.add("ai-message");
+        aiMessage.textContent = msg.ai;
+        chatHistory.appendChild(aiMessage);
+    });
+
+    showChat(); // Switch back to the main chat view
+}
+
+// ✅ Auto-expand input field
+document.getElementById("user-input").addEventListener("input", function() {
+    this.style.height = "auto";
+    this.style.height = (this.scrollHeight) + "px";
+});
+
+// ✅ Load past conversations on page load
+window.onload = loadPastConversations;
+
+
+function startNewChat() {
+    let conversations = JSON.parse(localStorage.getItem("conversations")) || [];
+
+    // Mark the last conversation as finished
+    if (conversations.length > 0) {
+        conversations[conversations.length - 1].finished = true;
+    }
+
+    localStorage.setItem("conversations", JSON.stringify(conversations));
+
+    // Clear chat history
+    document.getElementById("chat-history").innerHTML = "";
+}
+
+
+
+    </script>
+
+</body>
+</html>
