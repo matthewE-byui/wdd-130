@@ -1,53 +1,49 @@
+/* Keep conversation text and menu aligned */
 .conversation-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     background: #252542;
-    padding: 8px;
-    border-radius: 5px;
+    padding: 10px;
     margin: 5px 0;
+    border-radius: 5px;
+    color: white;
     cursor: pointer;
-    transition: background 0.3s;
-    position: relative;
 }
 
-.conversation-item:hover {
-    background: #00eaff;
-    color: black;
+/* Ensure text doesn’t push the menu */
+.conversation-text {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px; /* Adjust width as needed */
 }
 
+/* Three-dot menu button */
 .options-btn {
     background: none;
     border: none;
+    font-size: 18px;
     color: white;
     cursor: pointer;
-    font-size: 18px;
+    padding: 5px;
     margin-left: 10px;
-    transition: color 0.2s;
 }
 
-.options-btn:hover {
-    color: #00eaff;
-}
-
+/* Delete button */
 .delete-btn {
-    background: red;
+    background: rgb(126, 19, 19);
     color: white;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-    position: absolute;
-    right: 10px;
-    top: 40px;
-    display: none; /* Hidden by default */
-    transition: transform 0.1s ease-in-out;
+    display: none;
+    margin-left: 10px;
+    transition: 0.2s ease-in-out;
 }
 
 .delete-btn:hover {
-    background: darkred;
-}
-
-.delete-btn:active {
-    transform: scale(0.9);
+    background: rgb(175, 25, 25);
 }

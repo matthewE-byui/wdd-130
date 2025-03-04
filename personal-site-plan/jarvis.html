@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="side_bar.css">
     <link rel="stylesheet" href="dark&light_mode.css">
     <link rel="stylesheet" href="chat_Icon.css">
+    <link rel="stylesheet" href="past_convo.css">
 </head>
 
 <body>
@@ -247,12 +248,40 @@ function loadPastConversations() {
 
     conversations.forEach((conv, index) => {
         let listItem = document.createElement("li");
-        let summary = conv.messages.length > 0 ? conv.messages[0].user : "Empty Conversation";
-        listItem.textContent = `Chat ${index + 1}: ${summary}`;
-        listItem.onclick = () => displayFullConversation(conv.messages);
+        listItem.classList.add("conversation-item");
+
+        // ✅ Display "Chat 1", "Chat 2", etc.
+        let textSpan = document.createElement("span");
+        textSpan.textContent = `Chat ${index + 1}`;
+        textSpan.classList.add("conversation-text");
+        textSpan.onclick = () => displayFullConversation(conv.messages);
+
+        // ✅ Create three-dot menu button
+        let optionsButton = document.createElement("button");
+        optionsButton.innerHTML = "⋮"; // Three-dot menu
+        optionsButton.classList.add("options-btn");
+        optionsButton.onclick = (event) => toggleOptionsMenu(event, index);
+
+        // ✅ Create delete button (Initially hidden)
+        let deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.classList.add("delete-btn");
+        deleteButton.style.display = "none"; // Hide initially
+        deleteButton.onclick = (event) => {
+            event.stopPropagation(); // Prevent opening chat when deleting
+            deleteConversation(index);
+        };
+
+        // ✅ Append elements
+        listItem.appendChild(textSpan);
+        listItem.appendChild(optionsButton);
+        listItem.appendChild(deleteButton);
         pastConversations.appendChild(listItem);
     });
 }
+
+
+
 
 
 
@@ -296,6 +325,33 @@ document.getElementById("user-input").addEventListener("input", function() {
 window.onload = loadPastConversations;
     </script>
 
+
+
+    <script>
+
+function toggleOptionsMenu(event, index) {
+    let pastConversations = document.getElementById("past-conversations");
+    let allDeleteButtons = pastConversations.querySelectorAll(".delete-btn");
+
+    // Hide all delete buttons first
+    allDeleteButtons.forEach(btn => btn.style.display = "none");
+
+    // Show only the delete button for the clicked item
+    let deleteButton = event.target.nextElementSibling;
+    deleteButton.style.display = deleteButton.style.display === "none" ? "block" : "none";
+}
+
+
+function deleteConversation(index) {
+    let conversations = JSON.parse(localStorage.getItem("conversations")) || [];
+    conversations.splice(index, 1); // Remove the selected conversation
+    localStorage.setItem("conversations", JSON.stringify(conversations));
+    loadPastConversations(); // Refresh the list
+}
+
+
+
+    </script>
 
 </body>
 </html>
