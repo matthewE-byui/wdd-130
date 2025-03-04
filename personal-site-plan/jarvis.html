@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <title>Jarvis AI Interface</title>
     <link rel="stylesheet" href="jarvis.css">
+    <link rel="stylesheet" href="side_bar.css">
+    <link rel="stylesheet" href="dark&light_mode.css">
+    <link rel="stylesheet" href="chat_Icon.css">
 </head>
 
 <body>
@@ -92,9 +95,54 @@
 
 
 
-    <!-- JavaScript to Switch Views -->
+    <!-- Starting a New Chat -->
     <script>
 
+function startNewChat() {
+    let conversations = JSON.parse(localStorage.getItem("conversations")) || [];
+
+    // Mark the last conversation as finished
+    if (conversations.length > 0) {
+        conversations[conversations.length - 1].finished = true;
+    }
+
+    localStorage.setItem("conversations", JSON.stringify(conversations));
+
+    // Clear chat history
+    document.getElementById("chat-history").innerHTML = "";
+}
+
+
+
+    </script>
+    <!-- Theme Switcher -->
+    <script>
+        // Load Theme from Local Storage
+        function loadTheme() {
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme) {
+                document.body.classList.toggle("light-mode", savedTheme === "light");
+                document.getElementById("theme").value = savedTheme;
+            }
+        }
+
+        // Toggle Theme Function
+        function toggleTheme() {
+            const themeSelect = document.getElementById("theme").value;
+            document.body.classList.toggle("light-mode", themeSelect === "light");
+            localStorage.setItem("theme", themeSelect);
+        }
+
+        // Apply Theme on Page Load
+        window.onload = function () {
+            loadTheme();
+            loadPastConversations();
+        };
+
+        document.getElementById("theme").addEventListener("change", toggleTheme);
+    </script>
+    <!-- Fuctions to Show -->
+    <script>
 function showSettings() {
     document.getElementById("chat-view").style.display = "none";
     document.getElementById("chat-history-view").style.display = "none"; 
@@ -126,15 +174,19 @@ function showChatHistory() {
         pastConversations.appendChild(listItem);
     });
 }
-
-// ✅ Keep only this `resetChatHistory()` function
+    </script>
+    <!-- Resetting Chat History-->
+    <script>
+        // ✅ Keep only this `resetChatHistory()` function
 function resetChatHistory() {
     let chatHistory = document.getElementById("chat-history");
     let userMessages = chatHistory.querySelectorAll(".user-message"); 
     userMessages.forEach(message => message.remove()); 
 }
-
-// ✅ Keep only this `sendMessage()` function
+    </script>
+    <!-- Send Message -->
+    <script>
+        // ✅ Keep only this `sendMessage()` function
 function sendMessage() {
     let inputField = document.getElementById("user-input");
     let input = inputField.value.trim();
@@ -166,8 +218,9 @@ function sendMessage() {
         }, 1000);
     }
 }
-
-// ✅ Keep only this version of `saveConversation()`
+    </script>
+    <!-- Save Conversation -->
+    <script>
 function saveConversation(userMessage, aiMessage) {
     let conversations = JSON.parse(localStorage.getItem("conversations")) || [];
     
@@ -181,9 +234,12 @@ function saveConversation(userMessage, aiMessage) {
 
     localStorage.setItem("conversations", JSON.stringify(conversations));
 }
+    </script>
+    <!-- Load Past Conversations-->
+    <script>
 
 
-// ✅ Keep only this `loadPastConversations()`
+
 function loadPastConversations() {
     let conversations = JSON.parse(localStorage.getItem("conversations")) || [];
     let pastConversations = document.getElementById("past-conversations");
@@ -198,7 +254,13 @@ function loadPastConversations() {
     });
 }
 
-// ✅ Display full past conversation
+
+
+
+    </script>
+    <!-- Displaying Past Conversations-->
+    <script>
+        // Display full past conversation
 function displayFullConversation(messages) {
     let chatHistory = document.getElementById("chat-history");
     chatHistory.innerHTML = ""; // Clear chat window
@@ -217,34 +279,23 @@ function displayFullConversation(messages) {
 
     showChat(); // Switch back to the main chat view
 }
+    </script>
+    <!-- Auto Expand -->
+    <script>
 
-// ✅ Auto-expand input field
+        // Auto-expand input field
 document.getElementById("user-input").addEventListener("input", function() {
     this.style.height = "auto";
     this.style.height = (this.scrollHeight) + "px";
 });
 
-// ✅ Load past conversations on page load
-window.onload = loadPastConversations;
-
-
-function startNewChat() {
-    let conversations = JSON.parse(localStorage.getItem("conversations")) || [];
-
-    // Mark the last conversation as finished
-    if (conversations.length > 0) {
-        conversations[conversations.length - 1].finished = true;
-    }
-
-    localStorage.setItem("conversations", JSON.stringify(conversations));
-
-    // Clear chat history
-    document.getElementById("chat-history").innerHTML = "";
-}
-
-
-
     </script>
+    <!-- Loading past converstaions -->
+    <script>
+    // Load past conversations on page load
+window.onload = loadPastConversations;
+    </script>
+
 
 </body>
 </html>

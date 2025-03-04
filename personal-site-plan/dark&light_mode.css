@@ -1,0 +1,54 @@
+/* Default to Dark Mode */
+:root {
+    --bg-color: hsl(0, 3%, 11%);
+    --text-color: #ffffff;
+    --sidebar-bg: #1a1a2e;
+    --sidebar-hover: #00eaff;
+    --chat-bg: rgba(255, 255, 255, 0.1);
+    --user-message-bg: #0088aa;
+    --ai-message-bg: rgba(255, 255, 255, 0.1);
+    --input-bg: #001a2b;
+}
+
+/* Light Mode */
+.light-mode {
+    --bg-color: #89CFF3;
+    --text-color: #000000;
+    --sidebar-bg: #A0E9FF;
+    --sidebar-hover: #0088aa;
+    --chat-bg: rgba(0, 0, 0, 0.1);
+    --user-message-bg: #00A9FF;
+    --ai-message-bg: #00A9FF;
+    --input-bg: #ffffff;
+}
+
+/* Apply Theme Variables */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.sidebar {
+    background-color: var(--sidebar-bg);
+}
+
+.sidebar nav ul li a:hover {
+    background-color: var(--sidebar-hover);
+}
+
+.chat-history {
+    background-color: var(--chat-bg);
+}
+
+.user-message {
+    background-color: var(--user-message-bg);
+}
+
+.ai-message {
+    background-color: var(--ai-message-bg);
+}
+
+#user-input {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}

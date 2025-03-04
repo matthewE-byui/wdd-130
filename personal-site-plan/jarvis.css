@@ -13,67 +13,7 @@ body {
     width: 100%;
 }
 
-/* Sidebar (Left) */
-.sidebar {
-    width: 260px;
-    background-color: #1a1a2e;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
 
-.sidebar h2 {
-    color: #00eaff;
-    text-align: center;
-}
-
-.sidebar nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar nav ul li {
-    margin: 15px 0;
-}
-
-.sidebar nav ul li a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    padding: 10px;
-    background-color: #252542;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.sidebar nav ul li a:hover {
-    background-color: #00eaff;
-    color: black;
-}
-/* new side bar 2/25/2025*/
-.sidebar-conversations {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-    max-height: 200px; /* Prevents too many chats from expanding the sidebar */
-    overflow-y: auto; /* Scrollable if too many */
-}
-
-.sidebar-conversations li {
-    padding: 8px;
-    background: #252542;
-    color: white;
-    border-radius: 5px;
-    margin: 5px 0;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.sidebar-conversations li:hover {
-    background: #00eaff;
-    color: black;
-}
 /*------------------------------*/
 
 
@@ -125,82 +65,6 @@ body {
 
 .chat-box {
     margin-top: 40px;
-}
-
-
-/* Chat Icon with spinning rings */
-.chat-icon {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    background: radial-gradient(circle at center, #00eaff 20%, #003344 80%);
-    border-radius: 50%;
-    box-shadow: 0 0 10px #00eaff;
-}
-
-.ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.ring1 {
-    width: 30px;
-    height: 30px;
-    border: 2px dashed rgba(0, 234, 255, 0.6);
-    animation: spin 10s infinite linear;
-}
-
-.ring2 {
-    width: 38px;
-    height: 38px;
-    border: 2px dashed rgba(0, 234, 255, 0.4);
-    animation: spin-reverse 15s infinite linear;
-}
-
-.ring3 {
-    width: 45px;
-    height: 45px;
-    border: 4px dashed rgba(0, 234, 255, 0.3);
-    animation: spin 20s infinite linear;
-}
-
-@keyframes spin {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes spin-reverse {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(-360deg); }
-}
-/* spinning rings send animation */
-.send-button {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    position: relative;
-    transition: transform 0.1s ease-in-out;
-}
-
-.send-button:active {
-    transform: scale(0.9); /* Shrinks when clicked */
-}
-
-/* Extra effect: glow pulse */
-.send-button.clicked {
-    animation: pulseEffect 0.3s ease-in-out;
-}
-
-@keyframes pulseEffect {
-    0% { transform: scale(0.9); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
 }
 
 /* Chat Input */
@@ -323,3 +187,4 @@ select {
     height: 40px;
     overflow-y: auto;
 }
+
