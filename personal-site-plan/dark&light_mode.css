@@ -8,19 +8,165 @@
     --user-message-bg: #0088aa;
     --ai-message-bg: rgba(255, 255, 255, 0.1);
     --input-bg: #001a2b;
+    .chat-box {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        gap: 10px;
+    }
+    .delete-btn {
+        background: rgb(172, 29, 29);
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none;
+        margin-left: 10px;
+        transition: 0.2s ease-in-out;
+    }
+    .delete-btn:hover {
+        background: rgb(255, 0, 0);
+    }
+    select {
+        width: 110px;
+        padding: 8px;
+        margin-top: 5px;
+        background-color: #001a2b;
+        color: white;
+        border: 1px solid #00eaff;
+        border-radius: 5px;
+    }
+    .ai-message {
+        align-self: flex-start;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+        padding: 10px 15px;
+        border-radius: 10px;
+        max-width: 60%;
+        text-align: left;
+    }
+    .user-message {
+        align-self: flex-end;
+        background-color: #0088aa;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 10px;
+        max-width: 60%;
+        text-align: left;
+    }
+    .sidebar nav ul li a {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        background-color: #252542;
+        border-radius: 5px;
+        text-align: center;
+    }
+    
 }
 
 /* Light Mode */
 .light-mode {
-    --bg-color: #89CFF3;
+    --bg-color: #f7f8f9;
     --text-color: #000000;
-    --sidebar-bg: #A0E9FF;
-    --sidebar-hover: #0088aa;
+    --sidebar-bg: #dcd7d7;
+    --sidebar-hover: #9b9898;
     --chat-bg: rgba(0, 0, 0, 0.1);
     --user-message-bg: #00A9FF;
     --ai-message-bg: #00A9FF;
-    --input-bg: #ffffff;
+    --input-bg: #b2abab;
+
+    .sidebar-conversations li {
+        padding: 8px;
+        background: #808084;
+        color: white;
+        border-radius: 5px;
+        margin: 5px 0;
+        cursor: pointer;
+    }
+    
+    .sidebar-conversations li:hover {
+        background: #b8b9ba;
+        color: black;
+    }
+    .delete-btn:hover {
+        background: rgb(255, 12, 12);
+    }
+    .chat-box {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        background-color: rgb(135, 135, 135);
+        border-radius: 10px;
+        gap: 10px;
+    }
+    .delete-btn {
+        background: rgb(255, 79, 79);
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none;
+        margin-left: 10px;
+        transition: 0.2s ease-in-out;
+    }
+    select {
+        width: 110px;
+        padding: 8px;
+        margin-top: 5px;
+        background-color: #747272;
+        color: white;
+        border-radius: 5px;
+    }
+.ai-message {
+    align-self: flex-start;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 60%;
+    text-align: left;
 }
+.ai-message {
+    align-self: flex-start;
+    background-color: rgb(87, 87, 87);
+    color: #cecece;
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 60%;
+    text-align: left;
+}
+.user-message {
+    align-self: flex-end;
+    background-color: #0094b9;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 60%;
+    text-align: left;
+}
+.sidebar nav ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    background-color: #555555;
+    border-radius: 5px;
+    text-align: center;
+}
+}
+
+
+
+
+
+
+
 
 /* Apply Theme Variables */
 body {
@@ -52,3 +198,5 @@ body {
     background-color: var(--input-bg);
     color: var(--text-color);
 }
+
+

@@ -42,21 +42,12 @@ body {
 .chat-history {
     flex-grow: 1;
     overflow-y: auto;
-    background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
-/* Chat Box */
-.chat-box {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    gap: 10px;
-}
+
 
 
 .chat-history {
@@ -71,9 +62,7 @@ body {
 .chat-box textarea {
     flex: 1;
     padding: 10px;
-    border: 1px solid #00eaff;
-    border-radius: 5px;
-    background-color: #001a2b;
+    border-radius: 10px;
     color: #ffffff;
     text-align: left;
     resize: none;
@@ -81,57 +70,16 @@ body {
     overflow-y: auto;
 }
 
-.chat-box button {
-    background-color: #00eaff;
-    color: black;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-.chat-box button:hover {
-    background-color: #0088aa;
-}
 
 
-/*settings input */
-
-.settings-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #1a1a2e;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.settings-container h1 {
-    color: #00eaff;
-}
-
+/*settings input _ works */
 label {
     display: block;
     margin-top: 15px;
-    font-size: 16px;
+    font-size: 20px;
 }
 
-select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    background-color: #001a2b;
-    color: white;
-    border: 1px solid #00eaff;
-    border-radius: 5px;
-}
-.back-link {
-    display: block;
-    margin-top: 15px;
-    color: #00eaff;
-    text-decoration: none;
-}
+
 /*format user and AI messages*/
 .chat-history {
     display: flex;
@@ -142,49 +90,9 @@ select {
     max-height: 70vh; /* Ensures chat scrolls when full */
 }
 
-/* User Messages (Align Right) */
-.user-message {
-    align-self: flex-end;
-    background-color: #0088aa;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 10px;
-    max-width: 60%;
-    text-align: left;
-}
 
-/* AI Messages (Align Left) */
-.ai-message {
-    align-self: flex-start;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    padding: 10px 15px;
-    border-radius: 10px;
-    max-width: 60%;
-    text-align: left;
-}
 
-/* Ensure chat input is positioned well */
-.chat-input-container {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    width: 100%;
-    gap: 10px;
-}
 
-/* User Input Field */
-#user-input {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    background: #001a2b;
-    color: white;
-    border-radius: 5px;
-    resize: none;
-    height: 40px;
-    overflow-y: auto;
-}
+
+
 

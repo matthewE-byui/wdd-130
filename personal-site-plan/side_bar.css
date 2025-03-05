@@ -22,20 +22,8 @@
     margin: 15px 0;
 }
 
-.sidebar nav ul li a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    padding: 10px;
-    background-color: #252542;
-    border-radius: 5px;
-    text-align: center;
-}
 
-.sidebar nav ul li a:hover {
-    background-color: #00eaff;
-    color: black;
-}
+
 /* new side bar 2/25/2025*/
 .sidebar-conversations {
     list-style: none;

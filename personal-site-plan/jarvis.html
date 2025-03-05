@@ -19,12 +19,12 @@
             <nav>
                 <ul>
                     <li><a href="#" onclick="startNewChat(); showChat();">New Chat</a></li>
-                    
+                    <li><a href="#" onclick="showSettings()">Settings</a></li>
+
                     <li>
                         <a href="#" onclick="showChatHistory()">Past Conversations</a>
                         <ul id="past-conversations" class="sidebar-conversations"></ul>
                     </li>
-                    <li><a href="#" onclick="showSettings()">Settings</a></li>
                 </ul>
             </nav>
         </aside>
@@ -60,19 +60,6 @@
             <option value="light">Light Mode</option>
         </select>
 
-        <label for="text-size">Text Size:</label>
-        <select id="text-size">
-            <option value="small">Small</option>
-            <option value="medium" selected>Medium</option>
-            <option value="large">Large</option>
-        </select>
-
-        <label for="response-speed">AI Response Speed:</label>
-        <select id="response-speed">
-            <option value="normal" selected>Normal</option>
-            <option value="fast">Fast</option>
-            <option value="slow">Slow</option>
-        </select>
 
         <button id="reset-chat" onclick="resetChatHistory()" 
             style="background-color: rgb(126, 19, 19); color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px; transition: transform 0.1s ease-in-out;" 
@@ -164,6 +151,10 @@ function showChatHistory() {
     document.getElementById("chat-history-view").style.display = "block";
     document.getElementById("page-title").textContent = "Past Conversations";
 
+    loadPastConversations(); //  Load actual past conversations properly
+
+
+
     let conversations = JSON.parse(localStorage.getItem("conversations")) || [];
     let pastConversations = document.getElementById("past-conversations");
     pastConversations.innerHTML = ""; // Clear previous list
@@ -173,6 +164,7 @@ function showChatHistory() {
         listItem.textContent = `Conversation ${index + 1}`;
         listItem.onclick = () => displayFullConversation(conv.messages);
         pastConversations.appendChild(listItem);
+
     });
 }
     </script>
@@ -216,7 +208,7 @@ function sendMessage() {
             saveConversation(input, "Let me process that...");
 
             chatHistory.scrollTop = chatHistory.scrollHeight;
-        }, 1000);
+        }, 500);
     }
 }
     </script>
@@ -234,6 +226,9 @@ function saveConversation(userMessage, aiMessage) {
     conversations[conversations.length - 1].messages.push({ user: userMessage, ai: aiMessage });
 
     localStorage.setItem("conversations", JSON.stringify(conversations));
+
+    // ✅ Instantly update sidebar without refresh
+    loadPastConversations();
 }
     </script>
     <!-- Load Past Conversations-->
@@ -319,11 +314,7 @@ document.getElementById("user-input").addEventListener("input", function() {
 });
 
     </script>
-    <!-- Loading past converstaions -->
-    <script>
-    // Load past conversations on page load
-window.onload = loadPastConversations;
-    </script>
+
 
 
 
