@@ -1,0 +1,106 @@
+/* Default to Dark Mode */
+:root {
+    --bg-color: hsl(0, 3%, 11%);
+    --text-color: #ffffff;
+    --sidebar-bg: #1a1a2e;
+    --sidebar-hover: #00eaff;
+    --chat-bg: rgba(255, 255, 255, 0.1);
+    --user-message-bg: #0088aa;
+    --ai-message-bg: rgba(255, 255, 255, 0.1);
+    --input-bg: #001a2b;
+    .chat-box {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        gap: 10px;
+    }
+    .delete-btn {
+        background: rgb(77, 70, 70);
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none;
+        margin-left: 10px;
+        transition: 0.2s ease-in-out;
+    }
+    .delete-btn:hover {
+        background: rgb(255, 0, 0);
+    }
+    select {
+        width: 110px;
+        padding: 8px;
+        margin-top: 5px;
+        background-color: #001a2b;
+        color: white;
+        border: 1px solid #00eaff;
+        border-radius: 5px;
+    }
+    .ai-message {
+        align-self: flex-start;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+        padding: 10px 15px;
+        border-radius: 10px;
+        max-width: 60%;
+        text-align: left;
+    }
+    .user-message {
+        align-self: flex-end;
+        background-color: #0088aa;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 10px;
+        max-width: 60%;
+        text-align: left;
+    }
+    .sidebar nav ul li a {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        background-color: #252542;
+        border-radius: 5px;
+        text-align: center;
+    }
+    
+}
+
+
+
+
+/* Apply Theme Variables */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.sidebar {
+    background-color: var(--sidebar-bg);
+}
+
+.sidebar nav ul li a:hover {
+    background-color: var(--sidebar-hover);
+}
+
+.chat-history {
+    background-color: var(--chat-bg);
+}
+
+.user-message {
+    background-color: var(--user-message-bg);
+}
+
+.ai-message {
+    background-color: var(--ai-message-bg);
+}
+
+#user-input {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+
