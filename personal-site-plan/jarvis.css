@@ -32,12 +32,7 @@ body {
     align-items: center;
     padding: 0px 10px;
 }
-/* Chat Header */
-.chat-header h1 {
-    margin-left: -100px; /* Pushes it closer to the sidebar */
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.229);
-}
+
 
 /* Chat History */
 .chat-history {

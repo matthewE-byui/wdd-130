@@ -88,6 +88,14 @@
     border-radius: 5px;
     text-align: center;
 }
+/* Chat Header */
+.chat-header h1 {
+    margin-left: -100px; /* Pushes it closer to the sidebar */
+    font-size: 18px;
+    color: rgb(62, 62, 62);
+}
+
+
 }
 
 

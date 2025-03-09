@@ -16,7 +16,6 @@
     <div class="app-container">
         <!-- Sidebar -->
         <aside class="sidebar">
-            <h2></h2>
             <nav>
                 <ul>
                     <li><a href="#" onclick="startNewChat(); showChat();">New Chat</a></li>
@@ -33,8 +32,8 @@
         <!-- Main Chat Section -->
         <main class="chat-container">
             <header class="chat-header" style="position: absolute; top: 0; left: 1;">
-    <h1 id="page-title" class="sidebar-title">Jarvis 0.1</h1>
-</header>
+                <h1 id="page-title" class="sidebar-title">Jarvis 0.1</h1>
+            </header>
             <!-- Chat View -->
     <div id="chat-view">
                 
@@ -53,7 +52,7 @@
 
     <!-- Settings View  -->
     <div id="settings-view" style="display: none;">
-        <h2>Settings</h2>
+        <h2></h2>
 
         <label for="theme">Theme:</label>
         <select id="theme">
@@ -61,13 +60,6 @@
             <option value="light">Light Mode</option>
         </select>
 
-
-        <button id="reset-chat" onclick="resetChatHistory()" 
-            style="background-color: rgb(126, 19, 19); color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px; transition: transform 0.1s ease-in-out;" 
-            onmousedown="this.style.transform='scale(0.9)'" 
-            onmouseup="this.style.transform='scale(1)'">
-            Reset Chat History
-        </button>           
     </div>
                 <!-- Past Conversations View (Initially Hidden) -->
     <div id="chat-history-view" style="display: none;">
