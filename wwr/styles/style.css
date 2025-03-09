@@ -144,3 +144,19 @@ footer a:hover {
         width: 100%;
     }
 }
+
+
+
+.river-section img {
+    width: 100%;  /* Makes images scale responsively */
+    max-width: 500px; /* Set a max width to prevent oversized images */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px; /* Optional: Adds smooth corners */
+    display: block; /* Prevents unwanted space below images */
+    margin: 0 auto; /* Centers images */
+}
+.river-section img {
+    width: 400px; /* Fixed width */
+    height: 250px; /* Fixed height */
+    object-fit: cover; /* Ensures the image covers the space without distortion */
+}
