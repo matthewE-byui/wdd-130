@@ -19,7 +19,7 @@
     }
     
     .sidebar-conversations li:hover {
-        background: #b8b9ba;
+        background: #434242;
         color: black;
     }
     .delete-btn:hover {
@@ -44,14 +44,17 @@
         margin-left: 10px;
         transition: 0.2s ease-in-out;
     }
+    /* settings */
     select {
         width: 110px;
         padding: 8px;
         margin-top: 5px;
         background-color: #747272;
         color: white;
+        border: 2px solid #000000;
         border-radius: 5px;
     }
+    /*---------------*/
 .ai-message {
     align-self: flex-start;
     background-color: rgba(255, 255, 255, 0.1);

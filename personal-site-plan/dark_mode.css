@@ -30,15 +30,17 @@
     .delete-btn:hover {
         background: rgb(255, 0, 0);
     }
+    /* settings colors */
     select {
         width: 110px;
         padding: 8px;
         margin-top: 5px;
         background-color: #001a2b;
         color: white;
-        border: 1px solid #00eaff;
+        border: 2px solid #00eaff;
         border-radius: 5px;
     }
+    /*---------------*/
     .ai-message {
         align-self: flex-start;
         background-color: rgba(255, 255, 255, 0.1);
@@ -71,6 +73,20 @@
     margin-left: -100px; /* Pushes it closer to the sidebar */
     font-size: 18px;
     color: rgb(130, 130, 130);
+}
+.sidebar-conversations li {
+    padding: 8px;
+    background: #252542;
+    color: white;
+    border-radius: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+    
+}
+.sidebar-conversations li:hover {
+    background: #00eaff;
+    color: black;
 }
 }
 

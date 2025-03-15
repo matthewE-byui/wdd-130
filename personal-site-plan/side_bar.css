@@ -1,17 +1,13 @@
 /* Sidebar (Left) */
 .sidebar {
     width: 260px;
-    background-color: #1a1a2e;
     padding: 20px;
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-.sidebar h2 {
-    color: #00eaff;
-    text-align: center;
-}
+
 
 .sidebar nav ul {
     list-style: none;
@@ -33,17 +29,3 @@
     overflow-y: auto; /* Scrollable if too many */
 }
 
-.sidebar-conversations li {
-    padding: 8px;
-    background: #252542;
-    color: white;
-    border-radius: 5px;
-    margin: 5px 0;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.sidebar-conversations li:hover {
-    background: #00eaff;
-    color: black;
-}
