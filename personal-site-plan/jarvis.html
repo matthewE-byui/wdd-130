@@ -22,7 +22,6 @@
                     <li><a href="#" onclick="showSettings()">Settings</a></li>
 
                     <li>
-                        <a href="#" onclick="showChatHistory()">Past Conversations</a>
                         <ul id="past-conversations" class="sidebar-conversations"></ul>
                     </li>
                 </ul>
@@ -62,10 +61,8 @@
 
     </div>
                 <!-- Past Conversations View (Initially Hidden) -->
-    <div id="chat-history-view" style="display: none;">
-        <h2>Past Conversations</h2>
-        <ul id="past-conversations"></ul>
-    </div>
+<div id="chat-history-view" style="display: none;"></div>
+
 </main>
 
 
@@ -238,7 +235,7 @@ function loadPastConversations() {
         let listItem = document.createElement("li");
         listItem.classList.add("conversation-item");
 
-        // ✅ Use first user message (limited to 2 words) as summary
+        // ✅ Show first two words of the first user message as summary
         let summary = conv.messages.length > 0 ? conv.messages[0].user.split(" ").slice(0, 2).join(" ") + "..." : "Empty Chat";
 
         let textSpan = document.createElement("span");
@@ -266,6 +263,7 @@ function loadPastConversations() {
         pastConversations.appendChild(listItem);
     });
 }
+
 
 
 
