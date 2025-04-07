@@ -18,9 +18,10 @@
         <aside class="sidebar">
             <nav>
                 <ul>
+                    <li><a href="final_report.html" class="sidebar-link">Final Report</a></li>
+
                     <li><a href="#" onclick="startNewChat(); showChat();">New Chat</a></li>
                     <li><a href="#" onclick="showSettings()">Settings</a></li>
-
                     <li>
                         <ul id="past-conversations" class="sidebar-conversations"></ul>
                     </li>
@@ -33,6 +34,7 @@
             <header class="chat-header" style="position: absolute; top: 0; left: 1;">
                 <h1 id="page-title" class="sidebar-title">Jarvis 0.1</h1>
             </header>
+            
             <!-- Chat View -->
     <div id="chat-view">
                 
@@ -58,10 +60,11 @@
             <option value="dark">Dark Mode</option>
             <option value="light">Light Mode</option>
         </select>
-
     </div>
+    
                 <!-- Past Conversations View (Initially Hidden) -->
 <div id="chat-history-view" style="display: none;"></div>
+<section id="report" class="page" style="display: none;"></section>
 
 </main>
 
@@ -330,7 +333,30 @@ function deleteConversation(index) {
     localStorage.setItem("conversations", JSON.stringify(conversations));
     loadPastConversations(); // Refresh the list
 }
+function showPage(id) {
+  // Hide all .page sections
+  document.querySelectorAll('.page').forEach(page => {
+    page.style.display = 'none';
+  });
 
+  const target = document.getElementById(id);
+
+  // If it's the report page, load it from final_report.html
+  if (id === 'report') {
+    fetch('final_report.html')
+      .then(response => response.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const content = doc.querySelector('.page'); // grab just the content
+        target.innerHTML = content.innerHTML; // inject into #report
+        target.style.display = 'block'; // show the section
+      });
+  } else {
+    // Just show the section
+    target.style.display = 'block';
+  }
+}
 
 
     </script>
